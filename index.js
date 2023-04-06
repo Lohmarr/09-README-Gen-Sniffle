@@ -2,6 +2,7 @@
 
 const inquirer = require('inquirer')
 const fs = require('fs')
+const generateMarkdown = require('./utils/generateMarkdown')
 
 // Questions
 inquirer
@@ -30,7 +31,7 @@ inquirer
             type: 'list',
             name: 'license',
             message: 'Choose a license for the project:',
-            choices: ['MIT', 'GPL', 'Apache', 'BSD'],
+            choices: ['MIT', 'GPL v3', 'Apache 2.0', ' BSD 3-Clause'],
         },
         {
             type: 'input',
@@ -54,28 +55,11 @@ inquirer
         },
     ])
     .then((answers) => {
-        const readme = `
-        # ${answers.title}
+        const readme = 
+        generateMarkdown(answers)
 
-        ${answers.description}
-
-        ## Table of Contents
-
-        - [Installation](#installation)
-        - [Usage](#usage)
-        - [License](#license)
-        - [Contributing](#contributing)
-        - [Tests](#tests)
-        - [Questions](#questions)
-
-        ## Installation
-
-        ${answers.installation}
-
-        ## Usage
-
-        ${answers.usage}
-
-        ## License
-        `
+        fs.writeFile('README.md', readme, (err) => {
+            if (err) throw err
+            console.log('README file created successfully.')
+        })
     })
