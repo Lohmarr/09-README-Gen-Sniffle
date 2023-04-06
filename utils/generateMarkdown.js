@@ -35,7 +35,7 @@ function renderLicenseSection(license) {
   const link = renderLicenseLink(license);
 
   return `
-  ## License
+## License
 
 This project is licensed under the ${license} license.
 
@@ -66,7 +66,6 @@ ${answers.installation}
 ## Usage
 
 ${answers.usage}
-
 ${licenseSection}
 
 

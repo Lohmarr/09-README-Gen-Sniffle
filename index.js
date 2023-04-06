@@ -31,7 +31,7 @@ inquirer
             type: 'list',
             name: 'license',
             message: 'Choose a license for the project:',
-            choices: ['MIT', 'GPL v3', 'Apache 2.0', ' BSD 3-Clause'],
+            choices: ['MIT', 'GPL v3', 'Apache 2.0', 'BSD 3-Clause'],
         },
         {
             type: 'input',
