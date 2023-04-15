@@ -1,7 +1,6 @@
 # README Generator
 
 This command-line application generates a high-quality, professional README.md file for your project. It uses the Inquirer package to prompt you for information about your application repository.
-Table of Contents
 
 - [Description](#description)
 - [Installation](#installation)
