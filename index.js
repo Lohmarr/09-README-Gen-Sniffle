@@ -1,10 +1,8 @@
-// TODO title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-
 const inquirer = require('inquirer')
 const fs = require('fs')
 const generateMarkdown = require('./utils/generateMarkdown')
 
-// Questions
+// README Questions
 inquirer
     .prompt([
         {
@@ -54,11 +52,12 @@ inquirer
             message: 'Enter your email:'
         },
     ])
+    // Generating and writing README
     .then((answers) => {
         const readme = 
         generateMarkdown(answers)
 
-        fs.writeFile('README.md', readme, (err) => {
+        fs.writeFile('./Output/README.md', readme, (err) => {
             if (err) throw err
             console.log('README file created successfully.')
         })
